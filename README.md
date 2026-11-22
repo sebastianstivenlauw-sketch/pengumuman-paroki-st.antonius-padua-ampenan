@@ -28,7 +28,7 @@ Lalu buka `http://localhost:8000`.
 | Tanggal di bagian atas | `index.html` | Teks "Hari Raya Kristus Raja · Minggu, 22 November 2026" pada elemen `.hero-feast`. |
 | Pelindung paroki | `index.html` | Cari `<section class="patron" id="pelindung">`. Berisi ilustrasi dan profil singkat Santo Antonius Padua. |
 | Renungan | `index.html` | Cari `<section class="reflection" id="renungan">`. |
-| Alamat, telepon, email | `index.html` | Bagian footer. Data saat ini masih contoh. |
+| Alamat, telepon, email | `index.html` | Bagian footer. Alamat memakai Jl. Majapahit No. 10, Taman Sari, Kec. Ampenan, Kota Mataram, NTB 83112. Nomor telepon dan email masih contoh. |
 | Gambar | `assets/` | `gereja-ampenan.svg` dipakai di hero dan galeri; `antonius.svg` dipakai di bagian pelindung; `yesus.svg`, `roh-kudus.svg`, dan `salib.svg` dipakai di galeri/renungan. Ganti berkas dengan nama sama, atau ubah `src` dan teks `alt` bila memakai foto. |
 
 ## Struktur
