@@ -1,0 +1,50 @@
+# Warta Paroki St. Antonius Padua, Ampenan
+
+Situs pengumuman Paroki St. Antonius Padua, Ampenan, Kota Mataram, Nusa Tenggara Barat. Berisi jadwal Misa Minggu pukul **07.30** dan **18.00 WITA**, hitung mundur ke misa berikutnya, jam WITA langsung, daftar pengumuman yang bisa dibuka, renungan, galeri, dan kontak.
+
+## Menjalankan
+
+Klik dua kali `index.html`, atau buka lewat browser. Semua gambar tersimpan lokal di folder `assets/` (format SVG), jadi situs tetap tampil tanpa internet. Hanya jenis huruf yang diambil dari Google Fonts; bila offline, browser memakai huruf cadangan.
+
+Bila ingin memakai server lokal:
+
+```powershell
+cd C:\Users\user1\Documents\warta-paroki
+python -m http.server 8000
+```
+
+Lalu buka `http://localhost:8000`.
+
+## Mengubah isi
+
+| Bagian | Berkas | Petunjuk |
+| --- | --- | --- |
+| Pengumuman | `index.html` | Cari `<section ... id="pengumuman">`. Pengumuman utama ada di `<article class="feature">`; pengumuman lain ada di `<article class="notice">`. Duplikat satu artikel untuk menambah pengumuman, lalu buat `id` baru (`n7`, `n8`, ...) dan samakan dengan `aria-controls` pada tombolnya. |
+| Jadwal & hitung mundur | `script.js` | Ubah array `MASSES` di bagian atas. `start` dan `end` dihitung dalam menit sejak pukul 00.00 WITA. `end` hanya dipakai untuk status "sedang berlangsung", bukan ditampilkan sebagai jam selesai. |
+| Misa dan ibadat bulanan | `index.html` | Cari `<div class="monthly">`. Saat ini berisi Kamis pertama, Senin ketiga (pentahtaan), dan Jumat pertama, semuanya pukul 18.00 WITA. |
+| Tanggal di bagian atas | `index.html` | Teks "Hari Raya Kristus Raja · Minggu, 22 November 2026" pada elemen `.hero-feast`. |
+| Renungan | `index.html` | Cari `<section class="reflection" id="renungan">`. |
+| Alamat, telepon, email | `index.html` | Bagian footer. Data saat ini masih contoh. |
+| Gambar | `assets/` | `gereja.svg`, `yesus.svg`, `roh-kudus.svg`, `salib.svg`. Ganti berkas dengan nama sama, atau ubah `src` dan teks `alt` bila memakai foto. |
+
+## Struktur
+
+```
+warta-paroki/
+├─ index.html
+├─ styles.css
+├─ script.js
+├─ README.md
+└─ assets/
+   ├─ favicon.svg
+   ├─ gereja.svg
+   ├─ yesus.svg
+   ├─ roh-kudus.svg
+   └─ salib.svg
+```
+
+## Catatan
+
+- Misa Minggu pukul 07.30 dan 18.00 WITA. Durasi internal 75 menit hanya dipakai untuk menampilkan status "Misa sedang berlangsung" dan sisa waktunya; jam selesai tidak ditampilkan di halaman. Hitung mundur bekerja otomatis untuk setiap hari Minggu.
+- Ilustrasi dibuat khusus sebagai gambar vektor, bukan foto. Nuansa kaca patri dipakai agar gereja, Kristus, Roh Kudus, dan salib terasa satu keluarga visual.
+- Alamat, nomor telepon, email, serta sebagian isi pengumuman adalah contoh. Perbarui sebelum situs dipublikasikan.

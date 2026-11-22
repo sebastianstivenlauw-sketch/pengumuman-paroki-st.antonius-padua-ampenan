@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1150" role="img" aria-labelledby="judulSalib">
+  <title id="judulSalib">Salib keemasan diapit dua lilin di dalam ruang doa yang remang</title>
+  <defs>
+    <radialGradient id="ruang" cx=".5" cy=".42" r=".72">
+      <stop offset="0" stop-color="#3c2a44"/>
+      <stop offset=".55" stop-color="#291c32"/>
+      <stop offset="1" stop-color="#130d18"/>
+    </radialGradient>
+    <linearGradient id="emasSalib" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6dca2"/>
+      <stop offset=".35" stop-color="#d9ac62"/>
+      <stop offset=".7" stop-color="#a97a34"/>
+      <stop offset="1" stop-color="#e3bd7c"/>
+    </linearGradient>
+    <linearGradient id="lilin" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#cdbfa3"/>
+      <stop offset=".35" stop-color="#f4ead2"/>
+      <stop offset=".72" stop-color="#e4d5b6"/>
+      <stop offset="1" stop-color="#b9a887"/>
+    </linearGradient>
+    <linearGradient id="kuningan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7a5a27"/>
+      <stop offset=".4" stop-color="#d3a75d"/>
+      <stop offset=".7" stop-color="#a87a35"/>
+      <stop offset="1" stop-color="#6b4b1e"/>
+    </linearGradient>
+    <radialGradient id="nyala" cx=".5" cy=".55" r=".5">
+      <stop offset="0" stop-color="#fff6cf"/>
+      <stop offset=".45" stop-color="#ffd47e"/>
+      <stop offset="1" stop-color="#e08c33" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="kabur" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="kaburKecil" x="-120%" y="-120%" width="340%" height="340%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="1150" fill="url(#ruang)"/>
+
+  <path d="M150 980 L150 470 C 150 300 290 190 450 190 C 610 190 750 300 750 470 L750 980 Z" fill="none" stroke="#4d3a58" stroke-width="2.5" opacity=".8"/>
+  <path d="M168 980 L168 474 C 168 314 300 208 450 208 C 600 208 732 314 732 474 L732 980 Z" fill="none" stroke="#3a2b44" stroke-width="1.5" opacity=".9"/>
+
+  <ellipse cx="450" cy="600" rx="300" ry="380" fill="#f0c372" opacity=".1" filter="url(#kabur)"/>
+
+  <g fill="#f3d794" opacity=".5">
+    <circle cx="238" cy="330" r="1.8"/>
+    <circle cx="676" cy="296" r="1.6"/>
+    <circle cx="302" cy="240" r="1.3"/>
+    <circle cx="604" cy="252" r="1.5"/>
+    <circle cx="196" cy="620" r="1.4"/>
+    <circle cx="716" cy="600" r="1.7"/>
+    <circle cx="250" cy="840" r="1.2"/>
+    <circle cx="664" cy="826" r="1.3"/>
+    <circle cx="450" cy="150" r="1.6"/>
+  </g>
+
+  <g>
+    <path d="M450 210 L478 238 L468 270 L468 398 L652 398 L680 426 L652 454 L468 454 L468 862 L478 894 L450 922 L422 894 L432 862 L432 454 L248 454 L220 426 L248 398 L432 398 L432 270 L422 238 Z" fill="url(#emasSalib)" stroke="#6b4a1f" stroke-width="3" stroke-linejoin="round"/>
+    <g fill="none" stroke="#f8e3b4" stroke-width="2" opacity=".55">
+      <line x1="450" y1="276" x2="450" y2="850"/>
+      <line x1="276" y1="426" x2="624" y2="426"/>
+      <path d="M432 398 L468 398 L468 454 L432 454 Z"/>
+    </g>
+    <g fill="#f6dca2" opacity=".8">
+      <circle cx="450" cy="426" r="15"/>
+      <circle cx="450" cy="426" r="8" fill="#7a5a27"/>
+    </g>
+    <g stroke="#6b4a1f" stroke-width="2" opacity=".7">
+      <line x1="432" y1="238" x2="468" y2="270"/>
+      <line x1="432" y1="894" x2="468" y2="862"/>
+      <line x1="248" y1="402" x2="276" y2="426"/>
+      <line x1="652" y1="402" x2="624" y2="426"/>
+    </g>
+  </g>
+
+  <g>
+    <ellipse cx="266" cy="922" rx="62" ry="14" fill="#0d0911" opacity=".55"/>
+    <ellipse cx="266" cy="912" rx="54" ry="12" fill="url(#kuningan)"/>
+    <rect x="256" y="856" width="20" height="58" fill="url(#kuningan)"/>
+    <ellipse cx="266" cy="856" rx="34" ry="9" fill="url(#kuningan)"/>
+    <rect x="248" y="750" width="36" height="112" fill="url(#lilin)"/>
+    <ellipse cx="266" cy="750" rx="18" ry="6" fill="#fbf3de"/>
+    <path d="M266 744 C 258 732 258 718 266 704 C 274 718 274 732 266 744 Z" fill="#ffd47e"/>
+    <path d="M266 739 C 262 731 263 722 266 714 C 270 722 270 731 266 739 Z" fill="#fff5cd"/>
+    <circle cx="266" cy="722" r="48" fill="url(#nyala)" opacity=".65" filter="url(#kaburKecil)"/>
+  </g>
+
+  <g>
+    <ellipse cx="634" cy="924" rx="62" ry="14" fill="#0d0911" opacity=".55"/>
+    <ellipse cx="634" cy="914" rx="54" ry="12" fill="url(#kuningan)"/>
+    <rect x="624" y="858" width="20" height="58" fill="url(#kuningan)"/>
+    <ellipse cx="634" cy="858" rx="34" ry="9" fill="url(#kuningan)"/>
+    <rect x="614" y="768" width="36" height="96" fill="url(#lilin)"/>
+    <ellipse cx="634" cy="768" rx="18" ry="6" fill="#fbf3de"/>
+    <path d="M634 762 C 626 750 626 736 634 722 C 642 736 642 750 634 762 Z" fill="#ffd47e"/>
+    <path d="M634 757 C 630 749 631 740 634 732 C 638 740 638 749 634 757 Z" fill="#fff5cd"/>
+    <circle cx="634" cy="740" r="48" fill="url(#nyala)" opacity=".65" filter="url(#kaburKecil)"/>
+  </g>
+
+  <g>
+    <rect x="0" y="936" width="900" height="214" fill="#160f1b"/>
+    <path d="M0 936 L900 936 L900 952 L0 952 Z" fill="#2f2238"/>
+    <g opacity=".18" fill="#f0c372">
+      <path d="M450 952 L470 1050 L450 1150 L430 1050 Z"/>
+      <path d="M266 952 L278 1000 L266 1044 L254 1000 Z"/>
+      <path d="M634 952 L646 1000 L634 1044 L622 1000 Z"/>
+    </g>
+  </g>
+
+  <g fill="#f6d18a" opacity=".28">
+    <path d="M298 300 L292 336 L298 372 L304 336 Z"/>
+    <path d="M604 338 L599 368 L604 398 L609 368 Z"/>
+    <path d="M336 520 L332 545 L336 570 L340 545 Z"/>
+    <path d="M568 566 L564 591 L568 616 L572 591 Z"/>
+  </g>
+</svg>

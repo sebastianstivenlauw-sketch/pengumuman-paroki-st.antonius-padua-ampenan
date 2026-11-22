@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1100" role="img" aria-labelledby="judulRoh">
+  <title id="judulRoh">Kaca patri Roh Kudus sebagai merpati putih yang turun dengan sinar keemasan</title>
+  <defs>
+    <clipPath id="lengkungRoh">
+      <path d="M400 58 C 220 58 120 215 120 400 L120 1032 L680 1032 L680 400 C 680 215 580 58 400 58 Z"/>
+    </clipPath>
+    <linearGradient id="bulu" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffdf4"/>
+      <stop offset=".55" stop-color="#eef0e6"/>
+      <stop offset="1" stop-color="#c6d4d6"/>
+    </linearGradient>
+    <linearGradient id="buluBayang" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eef1e7"/>
+      <stop offset="1" stop-color="#b6c8cd"/>
+    </linearGradient>
+    <radialGradient id="pendarRoh" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#ffe6a8" stop-opacity=".6"/>
+      <stop offset=".55" stop-color="#f3c273" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#f3c273" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cahayaRoh" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6d18a" stop-opacity=".4"/>
+      <stop offset="1" stop-color="#f6d18a" stop-opacity="0"/>
+    </linearGradient>
+    <path id="sinarRoh" d="M400 300 L330 -70 L470 -70 Z"/>
+  </defs>
+
+  <rect width="800" height="1100" fill="#171219"/>
+
+  <g clip-path="url(#lengkungRoh)">
+    <rect x="110" y="50" width="580" height="990" fill="#132a42"/>
+
+    <g stroke="#0f1926" stroke-width="3">
+      <polygon points="110,380 110,1040 220,1040 198,740 238,500 176,330" fill="#1a3b55"/>
+      <polygon points="690,380 690,1040 580,1040 602,740 562,500 624,330" fill="#193a54"/>
+      <polygon points="120,210 230,60 330,58 268,290 186,330" fill="#1e4660"/>
+      <polygon points="680,210 570,60 470,58 532,290 614,330" fill="#204b63"/>
+      <polygon points="220,1040 198,740 270,850 300,1040" fill="#16344d"/>
+      <polygon points="580,1040 602,740 530,850 500,1040" fill="#15334b"/>
+      <polygon points="198,740 238,500 310,600 270,850" fill="#1d4460"/>
+      <polygon points="602,740 562,500 490,600 530,850" fill="#1c425d"/>
+      <polygon points="238,500 268,290 340,380 310,600" fill="#23506a"/>
+      <polygon points="562,500 532,290 460,380 490,600" fill="#224d67"/>
+      <polygon points="300,1040 310,600 366,760 372,1040" fill="#6a5a2e"/>
+      <polygon points="500,1040 490,600 434,760 428,1040" fill="#66562c"/>
+      <polygon points="366,760 372,1040 428,1040 434,760" fill="#8a7434"/>
+      <polygon points="268,290 310,600 400,470 400,300" fill="#2b637a" opacity=".85"/>
+      <polygon points="532,290 490,600 400,470 400,300" fill="#2a5f77" opacity=".85"/>
+      <polygon points="176,330 238,500 198,740 140,600" fill="#1a3f59"/>
+      <polygon points="624,330 562,500 602,740 660,600" fill="#193d57"/>
+    </g>
+
+    <g fill="#f0c97d" opacity=".12">
+      <polygon points="330,50 382,50 322,700 258,700"/>
+      <polygon points="418,50 470,50 542,700 478,700"/>
+      <polygon points="370,50 430,50 416,640 384,640"/>
+    </g>
+
+    <circle cx="400" cy="560" r="330" fill="url(#pendarRoh)"/>
+
+    <g fill="#e8bd6c" opacity=".22">
+      <use href="#sinarRoh" transform="rotate(0 400 300)"/>
+      <use href="#sinarRoh" transform="rotate(40 400 300)"/>
+      <use href="#sinarRoh" transform="rotate(80 400 300)"/>
+      <use href="#sinarRoh" transform="rotate(120 400 300)"/>
+      <use href="#sinarRoh" transform="rotate(160 400 300)"/>
+      <use href="#sinarRoh" transform="rotate(200 400 300)"/>
+      <use href="#sinarRoh" transform="rotate(240 400 300)"/>
+      <use href="#sinarRoh" transform="rotate(280 400 300)"/>
+      <use href="#sinarRoh" transform="rotate(320 400 300)"/>
+    </g>
+
+    <g fill="none" stroke="#0e1520" stroke-width="2.5" opacity=".75">
+      <polyline points="170,680 290,630 410,684 530,626 650,684"/>
+      <polyline points="150,880 280,824 400,884 520,826 660,880"/>
+      <polyline points="210,140 276,262 248,382"/>
+      <polyline points="590,140 524,262 552,382"/>
+      <polyline points="140,520 254,478 330,540"/>
+      <polyline points="660,520 546,478 470,540"/>
+    </g>
+
+    <g fill="#f3d794" opacity=".8">
+      <circle cx="228" cy="178" r="2.6"/>
+      <circle cx="576" cy="202" r="2.2"/>
+      <circle cx="188" cy="634" r="2.1"/>
+      <circle cx="612" cy="668" r="2.4"/>
+      <circle cx="284" cy="958" r="2"/>
+      <circle cx="522" cy="972" r="2.2"/>
+      <circle cx="638" cy="426" r="1.8"/>
+      <circle cx="166" cy="444" r="1.8"/>
+      <circle cx="400" cy="112" r="2.4"/>
+    </g>
+
+    <circle cx="400" cy="646" r="104" fill="none" stroke="#d9ae63" stroke-width="5" opacity=".85"/>
+    <circle cx="400" cy="646" r="92" fill="#f9e7b9" opacity=".14"/>
+
+    <g stroke="#26303c" stroke-width="4" stroke-linejoin="round">
+      <path d="M400 470 C 386 382 384 292 398 218 C 412 292 414 382 406 470 Z" fill="url(#bulu)"/>
+      <path d="M380 480 C 354 400 340 320 342 248 C 368 318 382 396 396 476 Z" fill="url(#buluBayang)"/>
+      <path d="M420 480 C 446 400 460 320 458 248 C 432 318 418 396 404 476 Z" fill="url(#buluBayang)"/>
+      <path d="M362 494 C 326 428 302 358 296 296 C 332 360 356 430 386 500 Z" fill="url(#bulu)"/>
+      <path d="M438 494 C 474 428 498 358 504 296 C 468 360 444 430 414 500 Z" fill="url(#bulu)"/>
+    </g>
+
+    <g transform="translate(800,0) scale(-1,1)">
+      <path d="M360 506 C 288 458 198 400 108 402 C 158 442 212 476 272 504 C 226 506 176 528 134 568 C 208 552 290 530 362 534 Z" fill="url(#bulu)" stroke="#26303c" stroke-width="4"/>
+      <g fill="none" stroke="#9fb2bb" stroke-width="2.4" opacity=".9">
+        <path d="M150 420 C 226 462 302 494 360 512"/>
+        <path d="M162 452 C 232 486 304 514 356 526"/>
+        <path d="M186 492 C 250 514 314 530 358 536"/>
+        <path d="M160 538 C 226 536 302 532 358 534"/>
+      </g>
+      <g fill="none" stroke="#26303c" stroke-width="2">
+        <path d="M128 410 C 180 448 236 480 292 502"/>
+        <path d="M138 572 C 204 554 278 538 340 536"/>
+      </g>
+    </g>
+
+    <ellipse cx="400" cy="548" rx="64" ry="98" fill="url(#bulu)" stroke="#26303c" stroke-width="4"/>
+    <g fill="none" stroke="#a8b8be" stroke-width="2.2" opacity=".85">
+      <path d="M356 500 C 372 540 372 600 362 632"/>
+      <path d="M444 500 C 428 540 428 600 438 632"/>
+      <path d="M400 470 C 392 520 392 596 400 634"/>
+    </g>
+
+    <path d="M382 606 C 388 630 392 648 396 662 L404 662 C 408 648 412 630 418 606 Z" fill="url(#buluBayang)" stroke="#26303c" stroke-width="3"/>
+    <circle cx="400" cy="650" r="37" fill="url(#bulu)" stroke="#26303c" stroke-width="4"/>
+    <path d="M386 676 L354 696 L386 690 Z" fill="#c99a4a" stroke="#26303c" stroke-width="3"/>
+    <circle cx="388" cy="644" r="4.2" fill="#26303c"/>
+    <path d="M370 640 C 380 634 392 634 402 640" fill="none" stroke="#8fa3ac" stroke-width="2"/>
+    <g fill="#f6d18a">
+      <path d="M340 700 L300 878 L330 878 L360 712 Z" opacity=".35"/>
+      <path d="M400 704 L386 892 L414 892 L400 704 Z" opacity=".35"/>
+      <path d="M460 700 L500 878 L470 878 L440 712 Z" opacity=".35"/>
+    </g>
+  </g>
+
+  <path d="M400 58 C 220 58 120 215 120 400 L120 1032 L680 1032 L680 400 C 680 215 580 58 400 58 Z" fill="none" stroke="#2a2430" stroke-width="26"/>
+  <path d="M400 74 C 230 74 136 224 136 402 L136 1016 L664 1016 L664 402 C 664 224 570 74 400 74 Z" fill="none" stroke="#b98a4a" stroke-width="2" opacity=".7"/>
+</svg>

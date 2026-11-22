@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1100" role="img" aria-labelledby="judulYesus">
+  <title id="judulYesus">Kaca patri Yesus Kristus dengan jubah merah dan halo keemasan</title>
+  <defs>
+    <clipPath id="lengkungKaca">
+      <path d="M400 58 C 220 58 120 215 120 400 L120 1032 L680 1032 L680 400 C 680 215 580 58 400 58 Z"/>
+    </clipPath>
+    <radialGradient id="haloYesus" cx=".5" cy=".45" r=".55">
+      <stop offset="0" stop-color="#ffe7a8"/>
+      <stop offset=".7" stop-color="#e5b465"/>
+      <stop offset="1" stop-color="#b9822f"/>
+    </radialGradient>
+    <linearGradient id="jubah" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8d3138"/>
+      <stop offset=".55" stop-color="#6f232b"/>
+      <stop offset="1" stop-color="#4d1720"/>
+    </linearGradient>
+    <linearGradient id="tunik" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2e6c9"/>
+      <stop offset="1" stop-color="#cdbc98"/>
+    </linearGradient>
+    <linearGradient id="kulit" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e2b185"/>
+      <stop offset=".6" stop-color="#d09a6c"/>
+      <stop offset="1" stop-color="#b07b52"/>
+    </linearGradient>
+    <linearGradient id="kitab" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0cd86"/>
+      <stop offset="1" stop-color="#b68437"/>
+    </linearGradient>
+    <radialGradient id="cahaya" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#f6cc7c" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#f6cc7c" stop-opacity="0"/>
+    </radialGradient>
+    <path id="sinarYesus" d="M400 380 L366 -80 L434 -80 Z"/>
+  </defs>
+
+  <rect width="800" height="1100" fill="#171219"/>
+
+  <g clip-path="url(#lengkungKaca)">
+    <rect x="110" y="50" width="580" height="990" fill="#142b45"/>
+
+    <g stroke="#101722" stroke-width="3">
+      <polygon points="110,400 110,1040 214,1040 196,772 232,534 180,360" fill="#1b3a57"/>
+      <polygon points="690,400 690,1040 586,1040 604,772 568,534 620,360" fill="#1a3956"/>
+      <polygon points="120,220 220,70 330,60 262,300 190,352" fill="#1f435c"/>
+      <polygon points="680,220 580,70 470,60 538,300 610,352" fill="#204660"/>
+      <polygon points="214,1040 196,772 258,900 300,1040" fill="#17334e"/>
+      <polygon points="586,1040 604,772 542,900 500,1040" fill="#16314b"/>
+      <polygon points="196,772 232,534 300,610 258,900" fill="#1e4160"/>
+      <polygon points="604,772 568,534 500,610 542,900" fill="#1d3f5d"/>
+      <polygon points="180,360 232,534 300,420 262,300" fill="#244a66"/>
+      <polygon points="620,360 568,534 500,420 538,300" fill="#254d69"/>
+      <polygon points="300,1040 300,610 360,760 372,1040" fill="#5d2530"/>
+      <polygon points="500,1040 500,610 440,760 428,1040" fill="#5a232e"/>
+      <polygon points="360,760 372,1040 428,1040 440,760" fill="#7a2a34"/>
+      <polygon points="262,300 300,420 360,300 330,200" fill="#1b405c"/>
+      <polygon points="538,300 500,420 440,300 470,200" fill="#1c425d"/>
+      <polygon points="330,60 400,58 400,210 360,300" fill="#274f6b"/>
+      <polygon points="470,60 400,58 400,210 440,300" fill="#29526e"/>
+      <polygon points="330,200 360,300 400,210" fill="#8a6230" opacity=".55"/>
+      <polygon points="470,200 440,300 400,210" fill="#946a34" opacity=".5"/>
+    </g>
+
+    <circle cx="400" cy="390" r="290" fill="url(#cahaya)"/>
+
+    <g fill="#e0b25f" opacity=".2">
+      <use href="#sinarYesus" transform="rotate(0 400 380)"/>
+      <use href="#sinarYesus" transform="rotate(30 400 380)"/>
+      <use href="#sinarYesus" transform="rotate(60 400 380)"/>
+      <use href="#sinarYesus" transform="rotate(90 400 380)"/>
+      <use href="#sinarYesus" transform="rotate(120 400 380)"/>
+      <use href="#sinarYesus" transform="rotate(150 400 380)"/>
+      <use href="#sinarYesus" transform="rotate(180 400 380)"/>
+      <use href="#sinarYesus" transform="rotate(210 400 380)"/>
+      <use href="#sinarYesus" transform="rotate(240 400 380)"/>
+      <use href="#sinarYesus" transform="rotate(270 400 380)"/>
+      <use href="#sinarYesus" transform="rotate(300 400 380)"/>
+      <use href="#sinarYesus" transform="rotate(330 400 380)"/>
+    </g>
+
+    <g fill="none" stroke="#0e1420" stroke-width="2.5" opacity=".75">
+      <polyline points="180,700 300,646 420,700 540,640 660,700"/>
+      <polyline points="160,880 280,824 400,884 520,826 650,880"/>
+      <polyline points="220,140 280,260 250,380"/>
+      <polyline points="580,140 520,260 550,380"/>
+      <polyline points="150,520 260,480 330,540"/>
+      <polyline points="650,520 540,480 470,540"/>
+    </g>
+
+    <g fill="#f3d794" opacity=".75">
+      <circle cx="238" cy="176" r="2.5"/>
+      <circle cx="566" cy="208" r="2.2"/>
+      <circle cx="196" cy="636" r="2"/>
+      <circle cx="602" cy="672" r="2.4"/>
+      <circle cx="292" cy="960" r="2"/>
+      <circle cx="512" cy="976" r="2.2"/>
+      <circle cx="628" cy="430" r="1.8"/>
+      <circle cx="172" cy="440" r="1.8"/>
+    </g>
+
+    <circle cx="400" cy="398" r="152" fill="url(#haloYesus)" stroke="#a9752c" stroke-width="6"/>
+    <circle cx="400" cy="398" r="128" fill="none" stroke="#a9752c" stroke-width="2" opacity=".55"/>
+    <g stroke="#a9752c" stroke-width="3" opacity=".38">
+      <line x1="400" y1="258" x2="400" y2="538"/>
+      <line x1="312" y1="398" x2="488" y2="398"/>
+    </g>
+
+    <path d="M358 560 L442 560 L456 1040 L344 1040 Z" fill="url(#tunik)" stroke="#181a23" stroke-width="4"/>
+    <g stroke="#b7a582" stroke-width="2.5" fill="none" opacity=".8">
+      <line x1="382" y1="590" x2="374" y2="1020"/>
+      <line x1="418" y1="590" x2="426" y2="1020"/>
+      <line x1="400" y1="640" x2="400" y2="1000" opacity=".5"/>
+    </g>
+
+    <path d="M400 542 C 340 548 300 598 284 690 L250 1040 L360 1040 L372 700 Z" fill="url(#jubah)" stroke="#181a23" stroke-width="4"/>
+    <path d="M400 542 C 460 548 500 598 516 690 L550 1040 L440 1040 L428 700 Z" fill="url(#jubah)" stroke="#181a23" stroke-width="4"/>
+    <g stroke="#43141c" stroke-width="3" fill="none" opacity=".8">
+      <path d="M334 640 C 316 730 306 890 300 1032"/>
+      <path d="M356 620 C 340 740 340 900 338 1032"/>
+      <path d="M466 640 C 484 730 494 890 500 1032"/>
+      <path d="M444 620 C 460 740 460 900 462 1032"/>
+    </g>
+    <g fill="#a97a35" stroke="#181a23" stroke-width="2">
+      <rect x="370" y="590" width="11" height="430"/>
+      <rect x="419" y="590" width="11" height="430"/>
+    </g>
+
+    <rect x="379" y="510" width="42" height="66" fill="#c08a5f" stroke="#181a23" stroke-width="3"/>
+
+    <path d="M318 438 C 312 336 352 298 400 298 C 448 298 488 336 482 438 L474 566 C 472 586 458 590 452 568 L452 500 L348 500 L348 568 C 342 590 328 586 326 566 Z" fill="#38271f" stroke="#181a23" stroke-width="4"/>
+    <ellipse cx="400" cy="440" rx="77" ry="92" fill="url(#kulit)" stroke="#181a23" stroke-width="4"/>
+
+    <path d="M320 424 C 334 362 366 340 400 340 C 434 340 466 362 480 424 C 458 396 432 388 400 402 C 368 388 342 396 320 424 Z" fill="#433026" stroke="#181a23" stroke-width="3"/>
+    <g stroke="#5d4230" stroke-width="2" fill="none" opacity=".7">
+      <path d="M340 392 C 358 366 378 354 400 352"/>
+      <path d="M460 392 C 442 366 422 354 400 352"/>
+    </g>
+
+    <g fill="#e0a87b" opacity=".25">
+      <ellipse cx="352" cy="462" rx="18" ry="24"/>
+      <ellipse cx="448" cy="462" rx="18" ry="24"/>
+    </g>
+
+    <g>
+      <path d="M362 433 C 369 427 380 427 388 433" fill="none" stroke="#5e3a2b" stroke-width="3" stroke-linecap="round"/>
+      <path d="M412 433 C 420 427 431 427 438 433" fill="none" stroke="#5e3a2b" stroke-width="3" stroke-linecap="round"/>
+      <ellipse cx="375" cy="444" rx="9" ry="4.2" fill="#f4e5d1" stroke="#181a23" stroke-width="1.8"/>
+      <ellipse cx="425" cy="444" rx="9" ry="4.2" fill="#f4e5d1" stroke="#181a23" stroke-width="1.8"/>
+      <circle cx="376" cy="444.5" r="2.9" fill="#33231c"/>
+      <circle cx="424" cy="444.5" r="2.9" fill="#33231c"/>
+      <path d="M366 442 Q 375 439 384 442" fill="none" stroke="#5e3a2b" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M416 442 Q 425 439 434 442" fill="none" stroke="#5e3a2b" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M400 444 L394 480 Q 400 486 407 480" fill="none" stroke="#a56f4c" stroke-width="3" stroke-linecap="round"/>
+    </g>
+
+    <path d="M336 452 C 340 518 364 552 400 568 C 436 552 460 518 464 452 C 448 486 426 500 400 500 C 374 500 352 486 336 452 Z" fill="#3b2b24" stroke="#181a23" stroke-width="3"/>
+    <path d="M400 488 C 390 486 380 490 372 500 C 382 500 392 498 400 494 C 408 498 418 500 428 500 C 420 490 410 486 400 488 Z" fill="#4a352b" stroke="#181a23" stroke-width="2"/>
+    <ellipse cx="400" cy="505" rx="16" ry="5" fill="#c08a66"/>
+    <path d="M387 505 Q 400 510 413 505" fill="none" stroke="#6f3c30" stroke-width="2.5" stroke-linecap="round"/>
+    <g stroke="#2d201b" stroke-width="2" fill="none" opacity=".55">
+      <path d="M356 480 C 366 520 382 548 400 558"/>
+      <path d="M444 480 C 434 520 418 548 400 558"/>
+    </g>
+
+    <path d="M320 618 C 300 660 288 702 286 744 L318 754 C 324 712 338 676 358 648 Z" fill="#6b232c" stroke="#181a23" stroke-width="3"/>
+    <ellipse cx="302" cy="754" rx="25" ry="23" fill="url(#kulit)" stroke="#181a23" stroke-width="3"/>
+    <rect x="288" y="700" width="13" height="54" rx="6.5" fill="url(#kulit)" stroke="#181a23" stroke-width="3"/>
+    <rect x="304" y="708" width="13" height="48" rx="6.5" fill="url(#kulit)" stroke="#181a23" stroke-width="3"/>
+    <ellipse cx="324" cy="736" rx="8" ry="14" transform="rotate(28 324 736)" fill="url(#kulit)" stroke="#181a23" stroke-width="3"/>
+    <path d="M284 744 Q 302 738 320 746" fill="none" stroke="#a97a35" stroke-width="6"/>
+
+    <path d="M480 622 C 500 662 512 704 516 842 L484 850 C 478 740 466 676 446 650 Z" fill="#6b232c" stroke="#181a23" stroke-width="3"/>
+    <rect x="466" y="788" width="90" height="102" rx="4" fill="url(#kitab)" stroke="#181a23" stroke-width="4"/>
+    <rect x="474" y="796" width="74" height="86" rx="2" fill="none" stroke="#8a5f22" stroke-width="2"/>
+    <g fill="#8a5f22">
+      <rect x="506" y="812" width="10" height="46" rx="1"/>
+      <rect x="490" y="826" width="42" height="10" rx="1"/>
+    </g>
+    <ellipse cx="502" cy="860" rx="26" ry="19" fill="url(#kulit)" stroke="#181a23" stroke-width="3"/>
+    <g fill="url(#kulit)" stroke="#181a23" stroke-width="3">
+      <rect x="488" y="848" width="12" height="34" rx="6"/>
+      <rect x="503" y="850" width="12" height="32" rx="6"/>
+      <rect x="518" y="848" width="11" height="30" rx="5.5"/>
+    </g>
+    <path d="M482 842 Q 502 834 522 842" fill="none" stroke="#a97a35" stroke-width="6"/>
+  </g>
+
+  <path d="M400 58 C 220 58 120 215 120 400 L120 1032 L680 1032 L680 400 C 680 215 580 58 400 58 Z" fill="none" stroke="#2a2430" stroke-width="26"/>
+  <path d="M400 74 C 230 74 136 224 136 402 L136 1016 L664 1016 L664 402 C 664 224 570 74 400 74 Z" fill="none" stroke="#b98a4a" stroke-width="2" opacity=".7"/>
+</svg>
