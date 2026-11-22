@@ -1086,28 +1086,136 @@ button {
   color: var(--brass);
 }
 
-.mass-extra {
+.daily-card {
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(20px, 3vw, 38px);
+  align-items: center;
   margin-top: clamp(26px, 3vw, 38px);
-  border-top: 1px solid #cec4b0;
+  padding: clamp(24px, 3vw, 38px);
+  overflow: hidden;
+  background:
+    radial-gradient(90% 140% at 0% 0%, rgba(226, 188, 124, 0.14), rgba(226, 188, 124, 0) 60%),
+    linear-gradient(135deg, #1d2d27 0%, #16231f 100%);
+  border: 1px solid rgba(226, 188, 124, 0.38);
+  border-radius: 3px;
+  color: var(--paper);
 }
 
-.mass-extra > div {
-  padding: 18px 28px 0 0;
+.daily-card::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -70px;
+  width: 190px;
+  height: 190px;
+  border: 1px solid rgba(226, 188, 124, 0.13);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
-.extra-label {
-  font-size: 0.73rem;
-  letter-spacing: 0.02em;
-  color: var(--ink-2);
+.daily-emblem {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: clamp(72px, 7vw, 96px);
+  height: clamp(72px, 7vw, 96px);
+  color: #e2bc7c;
+  background: rgba(226, 188, 124, 0.08);
+  border: 1px solid rgba(226, 188, 124, 0.4);
+  border-radius: 50%;
 }
 
-.extra-value {
-  margin-top: 3px;
+.daily-emblem svg {
+  width: 52%;
+  height: 52%;
+}
+
+.daily-body {
+  position: relative;
+  z-index: 1;
+}
+
+.daily-kicker {
+  margin: 0 0 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #dcc08c;
+}
+
+.daily-title {
+  margin: 0;
   font-family: var(--serif);
-  font-size: 1.08rem;
-  line-height: 1.3;
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.daily-title span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  color: #f0d49b;
+}
+
+.daily-title small {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #b9c6b7;
+}
+
+.daily-desc {
+  margin: 8px 0 0;
+  max-width: 48ch;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: #c9d1c8;
+}
+
+.daily-days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.daily-days li {
+  display: grid;
+  place-items: center;
+  min-width: 46px;
+  padding: 7px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(226, 188, 124, 0.28);
+  border-radius: 2px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #e7dcc4;
+}
+
+@media (max-width: 700px) {
+  .daily-card {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .daily-emblem {
+    width: 72px;
+    height: 72px;
+  }
+
+  .daily-title {
+    font-size: 1.75rem;
+  }
 }
 
 /* --------------------------- Pelindung paroki --------------------------- */
@@ -1909,10 +2017,6 @@ button {
   .notice-body-inner {
     padding-right: 22px;
     padding-left: 60px;
-  }
-
-  .mass-extra > div {
-    padding: 15px 0;
   }
 
   .footer-bottom {
