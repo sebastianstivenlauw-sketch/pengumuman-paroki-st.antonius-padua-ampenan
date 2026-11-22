@@ -411,7 +411,7 @@
 
           var grid = document.createElement("div");
           grid.className = "admin-grid";
-          grid.appendChild(field("Hari", "day", item.day, false, false));
+          grid.appendChild(field("Tanggal", "date", item.date || item.day, false, false));
           grid.appendChild(field("Bulan", "month", item.month, false, false));
           grid.appendChild(field("Kategori", "category", item.category, false, false));
           grid.appendChild(field("Judul", "title", item.title, false, false));
@@ -440,6 +440,7 @@
           card.querySelectorAll("[data-item]").forEach(function (input) {
             state.items[index][input.getAttribute("data-item")] = input.value;
           });
+          if (state.items[index].day !== undefined) delete state.items[index].day;
         });
       }
 
@@ -561,7 +562,7 @@
 
       document.getElementById("add-item").addEventListener("click", function () {
         collect();
-        state.items.push({ day: "", month: "", category: "", title: "", excerpt: "", body: "", meta: "" });
+        state.items.push({ date: "", month: "", category: "", title: "", excerpt: "", body: "", meta: "" });
         renderItems();
         refresh();
         var cards = itemsHost.querySelectorAll(".admin-item");

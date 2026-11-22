@@ -22,7 +22,7 @@ window.DATA_PENGUMUMAN = {
   },
   "items": [
     {
-      "day": "24",
+      "date": "24",
       "month": "Nov",
       "category": "Liturgi",
       "title": "Pengakuan dosa menjelang Advent",
@@ -31,7 +31,7 @@ window.DATA_PENGUMUMAN = {
       "meta": "Sabtu, 28 November 2026 · 16.00–17.30 WITA"
     },
     {
-      "day": "25",
+      "date": "25",
       "month": "Nov",
       "category": "Sakramen",
       "title": "Pendaftaran baptis bayi",
@@ -40,7 +40,7 @@ window.DATA_PENGUMUMAN = {
       "meta": "Batas pendaftaran: Senin, 30 November 2026 · Sekretariat paroki"
     },
     {
-      "day": "30",
+      "date": "30",
       "month": "Nov",
       "category": "Kegiatan",
       "title": "Sekolah Minggu",
@@ -49,7 +49,7 @@ window.DATA_PENGUMUMAN = {
       "meta": "Setiap Minggu · 09.00 WITA · Aula paroki"
     },
     {
-      "day": "Tes",
+      "date": "Tes",
       "month": "Tas",
       "category": "Tus",
       "title": "Tis",

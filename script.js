@@ -222,7 +222,7 @@
     button.setAttribute("aria-controls", id);
 
     var date = node("span", "notice-date");
-    date.appendChild(node("strong", "", item.day || ""));
+    date.appendChild(node("strong", "", item.date || item.day || ""));
     date.appendChild(node("span", "", item.month || ""));
     button.appendChild(date);
 
