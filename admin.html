@@ -219,9 +219,10 @@
         <fieldset>
           <legend>Simpan pengumuman</legend>
           <p class="admin-note">
-            Isi <em> Personal Access Token </em> dengan izin tulis pada repository ini.
-            Token hanya dikirim ke api.github.com dan tidak disimpan di situs, kecuali Anda mencentang
-            pilihan di bawah. Jangan memakai komputer umum bila mencentangnya.
+            Gunakan <em>Personal Access Token</em> dengan <strong>Contents: Read and write</strong> untuk repository ini.
+            Pada <em>Repository access</em>, pilih <strong>Only select repositories</strong>, bukan
+            <em>Public repositories (read-only)</em>. Token hanya dikirim ke api.github.com dan tidak disimpan di situs,
+            kecuali Anda mencentang pilihan di bawah. Jangan memakai komputer umum bila mencentangnya.
           </p>
           <div class="admin-grid">
             <div class="admin-field">
@@ -449,6 +450,13 @@
         });
       }
 
+      function stageError(stage) {
+        return function (error) {
+          error.stage = stage;
+          throw error;
+        };
+      }
+
       function saveToGithub() {
         refresh();
         var values = {};
@@ -466,7 +474,7 @@
 
         persistGithubSettings();
         saveBtn.disabled = true;
-        setStatus("Menyimpan ke GitHub…");
+        setStatus("Membaca data pengumuman yang ada…");
 
         var path = "data/pengumuman.js";
         var api = "https://api.github.com/repos/" +
@@ -476,10 +484,11 @@
         fetch(url, { headers: githubHeaders(values.token, false) })
           .then(function (response) {
             if (response.status === 404) return null;
-            if (!response.ok) return githubError(response).then(function (error) { throw error; });
+            if (!response.ok) return githubError(response).then(stageError("membaca data pengumuman"));
             return response.json();
           })
           .then(function (existing) {
+            setStatus("Menyimpan perubahan ke GitHub…");
             var payload = {
               message: "Perbarui pengumuman paroki " + witaDate(),
               content: toBase64(fileContent()),
@@ -493,7 +502,7 @@
             });
           })
           .then(function (response) {
-            if (!response.ok) return githubError(response).then(function (error) { throw error; });
+            if (!response.ok) return githubError(response).then(stageError("menyimpan perubahan"));
             return response.json();
           })
           .then(function () {
@@ -501,7 +510,11 @@
             setStatus("Tersimpan di GitHub. GitHub Pages akan memperbarui situs dalam beberapa menit.", false);
           })
           .catch(function (error) {
-            setStatus("Gagal menyimpan: " + error.message, true);
+            var hint = "";
+            if (error.message.indexOf("403") === 0) {
+              hint = " Periksa Repository access dan izin Contents: Read and write pada token.";
+            }
+            setStatus("Gagal " + (error.stage || "menyimpan") + ": " + error.message + hint, true);
           })
           .then(function () {
             saveBtn.disabled = false;
