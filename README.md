@@ -21,7 +21,8 @@ Lalu buka `http://localhost:8000`.
 | --- | --- | --- |
 | Pengumuman | `index.html` | Cari `<section ... id="pengumuman">`. Pengumuman utama ada di `<article class="feature">`; pengumuman lain ada di `<article class="notice">`. Duplikat satu artikel untuk menambah pengumuman, lalu buat `id` baru (`n7`, `n8`, ...) dan samakan dengan `aria-controls` pada tombolnya. |
 | Jadwal & hitung mundur | `script.js` | Ubah array `MASSES` di bagian atas. `start` dan `end` dihitung dalam menit sejak pukul 00.00 WITA. `end` hanya dipakai untuk status "sedang berlangsung", bukan ditampilkan sebagai jam selesai. |
-| Misa dan ibadat bulanan | `index.html` | Cari `<div class="monthly">`. Saat ini berisi Kamis pertama, Senin ketiga (pentahtaan), dan Jumat pertama, semuanya pukul 18.00 WITA. |
+| Misa dan ibadat bulanan | `index.html` | Cari `<div class="monthly">`. Berisi Kamis pertama, Senin ketiga, dan setiap Jumat (Jumat pertama dan biasa), semuanya pukul 18.00 WITA. |
+| Misa harian | `index.html` | Cari `<div class="daily-card">`. Berlaku Senin–Kamis pukul 06.00 WITA; misa pagi Jumat ditiadakan karena ada misa sore 18.00 WITA. |
 | Tanggal di bagian atas | `index.html` | Teks "Hari Raya Kristus Raja · Minggu, 22 November 2026" pada elemen `.hero-feast`. |
 | Pelindung paroki | `index.html` | Cari `<section class="patron" id="pelindung">`. Berisi ilustrasi dan profil singkat Santo Antonius Padua. |
 | Renungan | `index.html` | Cari `<section class="reflection" id="renungan">`. |

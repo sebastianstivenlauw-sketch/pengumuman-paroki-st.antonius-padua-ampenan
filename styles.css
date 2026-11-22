@@ -903,8 +903,28 @@ button {
 /* ------------------------------- Jadwal ------------------------------- */
 
 .schedule {
-  background: var(--paper-deep);
+  background:
+    radial-gradient(70% 40% at 100% 0%, rgba(226, 188, 124, 0.08), transparent 70%),
+    var(--paper-deep);
   border-block: 1px solid #ddd4c2;
+}
+
+.schedule-kicker {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 14px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+.schedule-kicker svg {
+  width: 8px;
+  height: 11px;
+  fill: currentColor;
 }
 
 .mass-grid {
@@ -920,6 +940,34 @@ button {
   padding: clamp(28px, 3.4vw, 44px);
   border: 1px solid;
   border-radius: 3px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.mass:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(36, 26, 42, 0.1);
+}
+
+.mass-badge {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  z-index: 2;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(160, 120, 60, 0.32);
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+.mass--night .mass-badge {
+  background: rgba(226, 188, 124, 0.08);
+  border-color: rgba(226, 188, 124, 0.35);
+  color: #e8d3a6;
 }
 
 .mass--day {
@@ -975,6 +1023,19 @@ button {
   height: 1px;
   background: currentColor;
   opacity: 0.6;
+}
+
+.mass .mass-kind::before {
+  display: none;
+}
+
+.mass-icon {
+  width: 25px;
+  height: 25px;
+  padding: 4px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  opacity: 0.85;
 }
 
 .mass--night .mass-kind {
@@ -1043,6 +1104,25 @@ button {
 .monthly-item {
   padding: 0 clamp(18px, 2.4vw, 30px);
   border-left: 1px solid #d6ccb9;
+  transition: transform 0.3s ease;
+}
+
+.monthly-item:hover {
+  transform: translateY(-3px);
+}
+
+.monthly-num {
+  display: inline-grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(138, 99, 41, 0.35);
+  border-radius: 50%;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--brass);
 }
 
 .monthly-item:first-child {
@@ -1056,6 +1136,7 @@ button {
 
 .monthly-day {
   font-size: 0.78rem;
+  line-height: 1.4;
   letter-spacing: 0.01em;
   color: var(--ink-2);
 }
@@ -1192,7 +1273,7 @@ button {
   display: grid;
   place-items: center;
   min-width: 46px;
-  padding: 7px 10px;
+  padding: 7px 12px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(226, 188, 124, 0.28);
   border-radius: 2px;
@@ -1200,6 +1281,28 @@ button {
   font-weight: 600;
   letter-spacing: 0.06em;
   color: #e7dcc4;
+}
+
+.daily-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(226, 188, 124, 0.18);
+  font-size: 0.74rem;
+  line-height: 1.55;
+  color: #b9c6b7;
+}
+
+.daily-note::before {
+  content: "";
+  flex: none;
+  width: 5px;
+  height: 5px;
+  margin-top: 7px;
+  border-radius: 50%;
+  background: #dcc08c;
 }
 
 @media (max-width: 700px) {
