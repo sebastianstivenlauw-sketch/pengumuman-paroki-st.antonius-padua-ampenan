@@ -134,6 +134,14 @@
       color: var(--ink-2);
     }
     .admin-check input { width: auto; }
+    .admin-token-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-top: -4px;
+    }
+    .admin-token-info { font-size: .74rem; color: var(--ink-2); }
     @media (max-width: 560px) {
       .admin-grid { grid-template-columns: 1fr; }
       .admin-field.wide { grid-column: auto; }
@@ -246,6 +254,10 @@
           <label class="admin-check" for="remember-token">
             <input id="remember-token" type="checkbox"> Ingat pengaturan dan token di peramban ini
           </label>
+          <div class="admin-token-actions">
+            <button class="admin-btn small" type="button" id="clear-token">Hapus token tersimpan</button>
+            <span class="admin-token-info" id="token-info" aria-live="polite"></span>
+          </div>
           <button class="admin-btn solid" type="button" id="save-github">Simpan pengumuman</button>
           <p class="admin-status" id="status" role="status"></p>
         </fieldset>
@@ -267,8 +279,11 @@
       var itemsHost = document.getElementById("items");
       var statusEl = document.getElementById("status");
       var saveBtn = document.getElementById("save-github");
+      var clearBtn = document.getElementById("clear-token");
+      var tokenInfo = document.getElementById("token-info");
       var rememberEl = document.getElementById("remember-token");
       var ghFields = document.querySelectorAll("[data-gh]");
+      var tokenField = document.querySelector('[data-gh="token"]');
       var STORAGE_KEY = "pengumuman-paroki-github";
 
       function clone(value) { return JSON.parse(JSON.stringify(value)); }
@@ -312,6 +327,22 @@
           values.token = "";
           storageSet(STORAGE_KEY, JSON.stringify(values));
         }
+      }
+
+      function storageRemove(key) {
+        try { localStorage.removeItem(key); } catch (error) { /* abaikan */ }
+      }
+
+      function updateTokenInfo() {
+        var token = tokenField ? tokenField.value.trim() : "";
+        if (!token) {
+          tokenInfo.textContent = "Token belum diisi.";
+          return;
+        }
+        var prefix = "token";
+        if (token.indexOf("github_pat_") === 0) prefix = "github_pat_";
+        else if (token.indexOf("ghp_") === 0) prefix = "ghp_";
+        tokenInfo.textContent = "Token terpakai: " + prefix + "••••" + token.slice(-4);
       }
 
       function loadFromSite() {
@@ -513,7 +544,7 @@
           .catch(function (error) {
             var hint = "";
             if (error.message.indexOf("403") === 0) {
-              hint = " Periksa Repository access dan izin Contents: Read and write pada token.";
+              hint = " Periksa Repository access dan izin Contents: Read and write, atau hapus token tersimpan bila memakai token baru.";
             }
             setStatus("Gagal " + (error.stage || "menyimpan") + ": " + error.message + hint, true);
           })
@@ -561,8 +592,19 @@
       saveBtn.addEventListener("click", saveToGithub);
       rememberEl.addEventListener("change", persistGithubSettings);
 
+      if (tokenField) tokenField.addEventListener("input", updateTokenInfo);
+
+      clearBtn.addEventListener("click", function () {
+        storageRemove(STORAGE_KEY);
+        rememberEl.checked = false;
+        tokenField.value = "";
+        updateTokenInfo();
+        setStatus("Token tersimpan dihapus. Tempel token baru, lalu klik Simpan pengumuman.");
+      });
+
       restoreGithubSettings();
       loadFromSite();
+      updateTokenInfo();
     }());
   </script>
 </body>
