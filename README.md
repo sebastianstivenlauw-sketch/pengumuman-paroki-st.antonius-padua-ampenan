@@ -23,9 +23,10 @@ Lalu buka `http://localhost:8000`.
 | Jadwal & hitung mundur | `script.js` | Ubah array `MASSES` di bagian atas. `start` dan `end` dihitung dalam menit sejak pukul 00.00 WITA. `end` hanya dipakai untuk status "sedang berlangsung", bukan ditampilkan sebagai jam selesai. |
 | Misa dan ibadat bulanan | `index.html` | Cari `<div class="monthly">`. Saat ini berisi Kamis pertama, Senin ketiga (pentahtaan), dan Jumat pertama, semuanya pukul 18.00 WITA. |
 | Tanggal di bagian atas | `index.html` | Teks "Hari Raya Kristus Raja · Minggu, 22 November 2026" pada elemen `.hero-feast`. |
+| Pelindung paroki | `index.html` | Cari `<section class="patron" id="pelindung">`. Berisi ilustrasi dan profil singkat Santo Antonius Padua. |
 | Renungan | `index.html` | Cari `<section class="reflection" id="renungan">`. |
 | Alamat, telepon, email | `index.html` | Bagian footer. Data saat ini masih contoh. |
-| Gambar | `assets/` | `gereja.svg`, `yesus.svg`, `roh-kudus.svg`, `salib.svg`. Ganti berkas dengan nama sama, atau ubah `src` dan teks `alt` bila memakai foto. |
+| Gambar | `assets/` | `gereja-ampenan.svg` dipakai di hero dan galeri; `antonius.svg` dipakai di bagian pelindung; `yesus.svg`, `roh-kudus.svg`, dan `salib.svg` dipakai di galeri/renungan. Ganti berkas dengan nama sama, atau ubah `src` dan teks `alt` bila memakai foto. |
 
 ## Struktur
 
@@ -37,6 +38,8 @@ pengumuman-paroki/
 ├─ README.md
 └─ assets/
    ├─ favicon.svg
+   ├─ gereja-ampenan.svg
+   ├─ antonius.svg
    ├─ gereja.svg
    ├─ yesus.svg
    ├─ roh-kudus.svg
@@ -46,5 +49,5 @@ pengumuman-paroki/
 ## Catatan
 
 - Misa Minggu pukul 07.30 dan 18.00 WITA. Durasi internal 75 menit hanya dipakai untuk menampilkan status "Misa sedang berlangsung" dan sisa waktunya; jam selesai tidak ditampilkan di halaman. Hitung mundur bekerja otomatis untuk setiap hari Minggu.
-- Ilustrasi dibuat khusus sebagai gambar vektor, bukan foto. Nuansa kaca patri dipakai agar gereja, Kristus, Roh Kudus, dan salib terasa satu keluarga visual.
+- Ilustrasi dibuat khusus sebagai gambar vektor, bukan foto. Nuansa kaca patri dipakai agar gereja, Santo Antonius, Kristus, Roh Kudus, dan salib terasa satu keluarga visual.
 - Alamat, nomor telepon, email, serta sebagian isi pengumuman adalah contoh. Perbarui sebelum situs dipublikasikan.

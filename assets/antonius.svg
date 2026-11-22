@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1050" role="img" aria-labelledby="judulAntonius">
+  <title id="judulAntonius">Kaca Patri Santo Antonius Padua, pelindung paroki</title>
+  <defs>
+    <clipPath id="lengkungAntonius">
+      <path d="M400 55 C 215 55 110 215 110 405 L110 1000 L690 1000 L690 405 C 690 215 585 55 400 55 Z"/>
+    </clipPath>
+    <radialGradient id="haloAntonius" cx=".5" cy=".45" r=".55">
+      <stop offset="0" stop-color="#ffe9b4"/>
+      <stop offset=".68" stop-color="#e2b163"/>
+      <stop offset="1" stop-color="#a86f25"/>
+    </radialGradient>
+    <linearGradient id="jubahAntonius" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9a6c42"/>
+      <stop offset=".55" stop-color="#6d4529"/>
+      <stop offset="1" stop-color="#3e2718"/>
+    </linearGradient>
+    <linearGradient id="tunikAntonius" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#efe0bf"/>
+      <stop offset="1" stop-color="#c5ac7e"/>
+    </linearGradient>
+    <linearGradient id="kulitAntonius" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0c49a"/>
+      <stop offset=".58" stop-color="#dca677"/>
+      <stop offset="1" stop-color="#b87b52"/>
+    </linearGradient>
+    <linearGradient id="bukuAntonius" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2d391"/>
+      <stop offset="1" stop-color="#a97a30"/>
+    </linearGradient>
+    <radialGradient id="cahayaAntonius" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#f5c978" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#f5c978" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="1050" fill="#1b1420"/>
+
+  <g clip-path="url(#lengkungAntonius)">
+    <rect x="100" y="50" width="600" height="960" fill="#163044"/>
+
+    <g stroke="#101722" stroke-width="3.5">
+      <polygon points="110,300 110,1010 220,1010 200,760 246,520 180,350" fill="#1b3d55"/>
+      <polygon points="690,300 690,1010 580,1010 600,760 554,520 620,350" fill="#1a3b53"/>
+      <polygon points="120,190 225,60 330,55 270,290 188,350" fill="#20465e"/>
+      <polygon points="680,190 575,60 470,55 530,290 612,350" fill="#214860"/>
+      <polygon points="180,350 246,520 320,400 270,290" fill="#254d68"/>
+      <polygon points="620,350 554,520 480,400 530,290" fill="#264e69"/>
+      <polygon points="220,1010 200,760 290,880 320,1010" fill="#17334a"/>
+      <polygon points="580,1010 600,760 510,880 480,1010" fill="#16324a"/>
+      <polygon points="200,760 246,520 320,650 290,880" fill="#1d415b"/>
+      <polygon points="600,760 554,520 480,650 510,880" fill="#1d4059"/>
+      <polygon points="320,1010 320,650 400,790 400,1010" fill="#5a3326"/>
+      <polygon points="480,1010 480,650 400,790 400,1010" fill="#542f23"/>
+      <polygon points="320,650 400,790 480,650 400,540" fill="#6b3f2c"/>
+      <polygon points="270,290 320,400 400,270 330,150" fill="#28546d"/>
+      <polygon points="530,290 480,400 400,270 470,150" fill="#29556e"/>
+    </g>
+
+    <circle cx="400" cy="345" r="228" fill="url(#cahayaAntonius)"/>
+    <circle cx="400" cy="338" r="172" fill="none" stroke="#f0c77e" stroke-opacity=".55" stroke-width="3"/>
+    <circle cx="400" cy="338" r="152" fill="url(#haloAntonius)" opacity=".93"/>
+    <circle cx="400" cy="338" r="152" fill="none" stroke="#fff0c9" stroke-opacity=".5" stroke-width="2"/>
+
+    <g stroke="#231a18" stroke-width="4" stroke-linejoin="round">
+      <path d="M248 1000 L270 650 Q 300 585 356 568 L444 568 Q 500 585 530 650 L552 1000 Z" fill="url(#jubahAntonius)"/>
+      <path d="M356 568 L320 640 L400 742 L480 640 L444 568 Z" fill="url(#tunikAntonius)"/>
+      <path d="M320 640 L300 930 L400 1000 L500 930 L480 640 L400 742 Z" fill="url(#jubahAntonius)"/>
+      <path d="M300 625 Q 400 690 500 625 Q 486 590 444 568 L356 568 Q 314 590 300 625 Z" fill="#c9a66f"/>
+      <path d="M400 742 L400 1000" fill="none" stroke="#4a2d1c" stroke-width="5"/>
+    </g>
+
+    <g>
+      <path d="M332 300 Q 400 258 468 300 L476 396 Q 466 468 400 492 Q 334 468 324 396 Z" fill="url(#kulitAntonius)" stroke="#7c4c33" stroke-width="3"/>
+      <path d="M326 338 Q 332 270 400 268 Q 468 270 474 338 Q 454 310 420 306 Q 396 330 372 306 Q 340 310 326 338 Z" fill="#3d271d"/>
+      <path d="M400 288 Q 386 322 400 350 Q 414 322 400 288 Z" fill="#5b3827"/>
+      <path d="M340 392 Q 350 384 362 390" fill="none" stroke="#5a3827" stroke-width="3" stroke-linecap="round"/>
+      <path d="M438 390 Q 450 384 460 392" fill="none" stroke="#5a3827" stroke-width="3" stroke-linecap="round"/>
+      <ellipse cx="352" cy="397" rx="9" ry="4.6" fill="#f6e8d2" stroke="#6d4531" stroke-width="1.5"/>
+      <ellipse cx="448" cy="397" rx="9" ry="4.6" fill="#f6e8d2" stroke="#6d4531" stroke-width="1.5"/>
+      <circle cx="353" cy="397.5" r="2.7" fill="#3a2a22"/>
+      <circle cx="449" cy="397.5" r="2.7" fill="#3a2a22"/>
+      <path d="M344 393 Q 352 390 360 393" fill="none" stroke="#5a3827" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M440 393 Q 448 390 456 393" fill="none" stroke="#5a3827" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M400 400 L394 438 Q 400 444 408 438" fill="none" stroke="#a56f4c" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M330 412 C 330 472 358 500 400 508 C 442 500 470 472 470 412 C 452 452 430 462 400 462 C 370 462 348 452 330 412 Z" fill="#3e2a21" stroke="#251a16" stroke-width="3"/>
+      <path d="M378 468 Q 400 478 422 468" fill="none" stroke="#8d5a41" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+
+    <g stroke="#2b1d16" stroke-width="3">
+      <path d="M470 640 Q 530 612 570 660 L610 760 L568 786 L520 704 L478 736 Z" fill="url(#jubahAntonius)"/>
+      <path d="M556 700 L548 586 Q 548 560 566 558 L580 558 L580 700 Z" fill="#d8c7a2"/>
+      <path d="M566 558 Q 548 548 538 566 Q 552 570 566 562 Z" fill="#f6f1df"/>
+      <path d="M580 558 Q 598 548 608 566 Q 594 570 580 562 Z" fill="#f6f1df"/>
+      <path d="M530 580 Q 550 590 566 574" fill="none" stroke="#7f9b62" stroke-width="5"/>
+      <path d="M580 574 Q 596 590 616 580" fill="none" stroke="#7f9b62" stroke-width="5"/>
+    </g>
+
+    <g stroke="#2b1d16" stroke-width="3">
+      <path d="M330 640 Q 270 612 230 660 L190 760 L232 786 L280 704 L322 736 Z" fill="url(#jubahAntonius)"/>
+      <rect x="196" y="690" width="112" height="82" rx="6" fill="url(#bukuAntonius)"/>
+      <path d="M252 690 L252 772" fill="none" stroke="#8c6229" stroke-width="3"/>
+      <path d="M212 712 L240 712 M212 728 L240 728 M264 712 L292 712 M264 728 L292 728" stroke="#7a5524" stroke-width="2"/>
+      <path d="M240 676 L264 676 L264 700 L240 700 Z" fill="#f3e3b8"/>
+      <path d="M252 676 L252 700" stroke="#9d7131" stroke-width="2"/>
+    </g>
+
+    <g fill="#f4e3b8" opacity=".55">
+      <circle cx="180" cy="180" r="3"/>
+      <circle cx="620" cy="210" r="2.5"/>
+      <circle cx="150" cy="520" r="2"/>
+      <circle cx="650" cy="470" r="2.5"/>
+      <circle cx="250" cy="130" r="2"/>
+      <circle cx="560" cy="130" r="2"/>
+    </g>
+  </g>
+
+  <path d="M400 55 C 215 55 110 215 110 405 L110 1000 L690 1000 L690 405 C 690 215 585 55 400 55 Z" fill="none" stroke="#d9b678" stroke-opacity=".6" stroke-width="4"/>
+</svg>
