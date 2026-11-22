@@ -47,6 +47,15 @@ window.DATA_PENGUMUMAN = {
       "excerpt": "Setiap Minggu, pukul 09.00 WITA di aula paroki.",
       "body": "Anak usia 5–12 tahun diajak mengenal Kitab Suci melalui cerita, lagu, dan permainan. Pendaftaran terbuka sepanjang tahun melalui pengurus lingkungan atau langsung di aula paroki.",
       "meta": "Setiap Minggu · 09.00 WITA · Aula paroki"
+    },
+    {
+      "day": "Tes",
+      "month": "Tas",
+      "category": "Tus",
+      "title": "Tis",
+      "excerpt": "Apa apa",
+      "body": "Yes",
+      "meta": "189037"
     }
   ]
 };
