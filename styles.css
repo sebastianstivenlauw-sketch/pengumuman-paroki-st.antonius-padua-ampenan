@@ -1120,8 +1120,8 @@ button {
   z-index: 1;
   display: grid;
   place-items: center;
-  width: clamp(54px, 5vw, 68px);
-  height: clamp(54px, 5vw, 68px);
+  width: clamp(42px, 4vw, 52px);
+  height: clamp(42px, 4vw, 52px);
   color: #e2bc7c;
   background: rgba(226, 188, 124, 0.08);
   border: 1px solid rgba(226, 188, 124, 0.4);
@@ -1129,8 +1129,8 @@ button {
 }
 
 .daily-emblem svg {
-  width: 46%;
-  height: 46%;
+  width: 40%;
+  height: 40%;
 }
 
 .daily-body {
@@ -1209,8 +1209,8 @@ button {
   }
 
   .daily-emblem {
-    width: 56px;
-    height: 56px;
+    width: 44px;
+    height: 44px;
   }
 
   .daily-title {
@@ -1271,7 +1271,7 @@ button {
 .patron-figure img {
   display: block;
   width: 100%;
-  max-width: 320px;
+  max-width: 240px;
   margin: 0 auto;
   border-radius: 50% 50% 3px 3px / 22% 22% 3px 3px;
 }
