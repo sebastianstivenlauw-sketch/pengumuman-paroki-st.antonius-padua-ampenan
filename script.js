@@ -1,4 +1,4 @@
-/* Warta Paroki St. Antonius Padua — interaksi halaman */
+/* Pengumuman Paroki St. Antonius Padua — interaksi halaman */
 (function () {
   "use strict";
 

@@ -1,4 +1,4 @@
-# Warta Paroki St. Antonius Padua, Ampenan
+# Pengumuman Paroki St. Antonius Padua, Ampenan
 
 Situs pengumuman Paroki St. Antonius Padua, Ampenan, Kota Mataram, Nusa Tenggara Barat. Berisi jadwal Misa Minggu pukul **07.30** dan **18.00 WITA**, hitung mundur ke misa berikutnya, jam WITA langsung, daftar pengumuman yang bisa dibuka, renungan, galeri, dan kontak.
 
@@ -9,7 +9,7 @@ Klik dua kali `index.html`, atau buka lewat browser. Semua gambar tersimpan loka
 Bila ingin memakai server lokal:
 
 ```powershell
-cd C:\Users\user1\Documents\warta-paroki
+cd C:\Users\user1\Documents\pengumuman-paroki
 python -m http.server 8000
 ```
 
@@ -30,7 +30,7 @@ Lalu buka `http://localhost:8000`.
 ## Struktur
 
 ```
-warta-paroki/
+pengumuman-paroki/
 ├─ index.html
 ├─ styles.css
 ├─ script.js
