@@ -40,33 +40,6 @@ window.DATA_PENGUMUMAN = {
       "meta": "Batas pendaftaran: Senin, 30 November 2026 · Sekretariat paroki"
     },
     {
-      "day": "26",
-      "month": "Nov",
-      "category": "Kegiatan",
-      "title": "Latihan koor gabungan",
-      "excerpt": "Jumat, 27 November, pukul 19.30 WITA di ruang koor.",
-      "body": "Seluruh anggota koor lingkungan diundang berlatih bersama untuk nyanyian Advent. Latihan dipandu oleh tim liturgi paroki dan berlangsung sekitar sembilan puluh menit.",
-      "meta": "Jumat, 27 November 2026 · 19.30 WITA · Ruang koor"
-    },
-    {
-      "day": "28",
-      "month": "Nov",
-      "category": "Kegiatan",
-      "title": "Kerja bakti menyambut Advent",
-      "excerpt": "Sabtu, 28 November, mulai pukul 07.00 WITA di halaman gereja.",
-      "body": "Kita membersihkan gereja, taman, dan aula bersama sebelum memasuki masa Advent. Bawa alat kebersihan dari rumah. Makan siang disediakan oleh seksi sosial.",
-      "meta": "Sabtu, 28 November 2026 · 07.00 WITA · Halaman gereja"
-    },
-    {
-      "day": "29",
-      "month": "Nov",
-      "category": "Sosial",
-      "title": "Posko bantuan korban banjir",
-      "excerpt": "Aula paroki, 23–30 November, pukul 08.00–16.00 WITA.",
-      "body": "Paroki membuka posko pengumpulan bantuan bagi keluarga terdampak banjir. Yang dibutuhkan: pakaian layak pakai, selimut, makanan kering, dan air bersih. Laporan penyaluran akan diumumkan setelah posko ditutup.",
-      "meta": "23–30 November 2026 · 08.00–16.00 WITA · Aula paroki"
-    },
-    {
       "day": "30",
       "month": "Nov",
       "category": "Kegiatan",
