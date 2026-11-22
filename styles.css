@@ -601,6 +601,157 @@ button {
   text-align: right;
 }
 
+/* ------------------------------ Sejarah ------------------------------ */
+
+.history {
+  background:
+    radial-gradient(60% 80% at 100% 0%, rgba(226, 188, 124, 0.1), transparent 65%),
+    var(--paper-soft);
+  border-bottom: 1px solid var(--line);
+}
+
+.history-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: clamp(44px, 7vw, 104px);
+  align-items: start;
+}
+
+.history-kicker {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 16px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+.history-kicker .mini-cross {
+  width: 8px;
+  height: 11px;
+  fill: currentColor;
+}
+
+.history-intro h2 {
+  max-width: 20ch;
+  font-size: clamp(2rem, 3.9vw, 3.1rem);
+  line-height: 1.06;
+}
+
+.history-intro > p:not(.history-kicker) {
+  max-width: 60ch;
+  margin-top: 18px;
+  font-size: 0.91rem;
+  line-height: 1.78;
+  color: var(--ink-2);
+}
+
+.history-intro .history-lede {
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 1.5vw, 1.24rem);
+  line-height: 1.52;
+  color: var(--ink);
+}
+
+.history-source {
+  margin-top: 24px !important;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 0.75rem !important;
+  line-height: 1.6 !important;
+}
+
+.history-source a {
+  color: var(--brass);
+  text-underline-offset: 3px;
+}
+
+.history-timeline {
+  position: relative;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.history-timeline::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 18px;
+  left: 70px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--brass-2), rgba(176, 138, 78, 0.14));
+}
+
+.history-timeline li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr);
+  gap: 28px;
+  padding-bottom: 26px;
+}
+
+.history-timeline li:last-child {
+  padding-bottom: 0;
+}
+
+.history-timeline li::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 66px;
+  width: 9px;
+  height: 9px;
+  background: var(--paper-soft);
+  border: 2px solid var(--brass-2);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--paper-soft);
+}
+
+.history-timeline span {
+  font-family: var(--serif);
+  font-size: 1.06rem;
+  line-height: 1.3;
+  color: var(--brass);
+  font-variant-numeric: tabular-nums;
+}
+
+.history-timeline p {
+  margin: 0;
+  font-size: 0.87rem;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+@media (max-width: 980px) {
+  .history-grid {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+}
+
+@media (max-width: 560px) {
+  .history-timeline::before {
+    left: 61px;
+  }
+
+  .history-timeline li {
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .history-timeline li::before {
+    left: 57px;
+  }
+
+  .history-timeline span {
+    font-size: 0.96rem;
+  }
+}
+
 /* ---------------------------- Pengumuman ----------------------------- */
 
 .announcements {

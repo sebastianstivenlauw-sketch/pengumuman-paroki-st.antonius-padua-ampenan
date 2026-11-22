@@ -19,6 +19,8 @@ Lalu buka `http://localhost:8000`.
 
 | Bagian | Berkas | Petunjuk |
 | --- | --- | --- |
+| Beranda | `index.html` | Menu **Beranda** mengarah ke `<section class="hero" id="beranda">`. Bagian ini berisi judul hari raya, ajakan, dan panel **Misa berikutnya** yang dihitung otomatis oleh `script.js`. Kartu jam Misa Minggu sengaja tidak ditampilkan di sini; jadwal lengkap ada di bagian Jadwal misa. |
+| Sejarah gereja | `index.html` | Cari `<section class="history" id="sejarah">`, tepat di bawah hero. Berisi narasi dan linimasa. Tanggal serta tokoh bersumber dari Wikipedia bahasa Indonesia dan catatan sejarah paroki; tautan sumber ada di bagian tersebut. Periksa kembali ke arsip paroki sebelum memakainya sebagai data resmi. |
 | Pengumuman | `index.html` | Cari `<section ... id="pengumuman">`. Pengumuman utama ada di `<article class="feature">`; pengumuman lain ada di `<article class="notice">`. Duplikat satu artikel untuk menambah pengumuman, lalu buat `id` baru (`n7`, `n8`, ...) dan samakan dengan `aria-controls` pada tombolnya. |
 | Jadwal & hitung mundur | `script.js` | Ubah array `MASSES` di bagian atas. `start` dan `end` dihitung dalam menit sejak pukul 00.00 WITA. `end` hanya dipakai untuk status "sedang berlangsung", bukan ditampilkan sebagai jam selesai. |
 | Misa dan ibadat bulanan | `index.html` | Cari `<div class="monthly">`. Berisi Kamis pertama, Senin ketiga, dan setiap Jumat (Jumat pertama dan biasa), semuanya pukul 18.00 WITA. |
