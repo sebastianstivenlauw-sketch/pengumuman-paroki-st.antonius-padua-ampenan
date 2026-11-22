@@ -152,17 +152,142 @@
 
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  /* Pengumuman yang bisa dibuka */
-  var noticeButtons = document.querySelectorAll(".notice-head");
-  Array.prototype.forEach.call(noticeButtons, function (button) {
-    button.addEventListener("click", function () {
-      var item = button.closest(".notice");
-      var isOpen = item.classList.toggle("open");
-      button.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      var body = document.getElementById(button.getAttribute("aria-controls"));
-      if (body) body.setAttribute("aria-hidden", isOpen ? "false" : "true");
+  /* ------------------------------------------------------------------
+     Pengumuman diambil dari data/pengumuman.js.
+     Markup statis di index.html dipakai jika berkas data tidak ada.
+     ------------------------------------------------------------------ */
+  function node(tag, className, text) {
+    var item = document.createElement(tag);
+    if (className) item.className = className;
+    if (text !== undefined && text !== null) item.textContent = String(text);
+    return item;
+  }
+
+  function featureMark() {
+    var ns = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(ns, "svg");
+    svg.setAttribute("class", "feature-mark");
+    svg.setAttribute("viewBox", "0 0 24 34");
+    svg.setAttribute("aria-hidden", "true");
+    var path = document.createElementNS(ns, "path");
+    path.setAttribute("d", "M10.4 0h3.2v9.2H23v3.2h-9.4V34h-3.2V12.4H1V9.2h9.4z");
+    svg.appendChild(path);
+    return svg;
+  }
+
+  function buildFeature(feature) {
+    var article = node("article", "feature");
+    var head = node("div", "feature-head");
+    head.appendChild(node("span", "tag", feature.tag || "Pengumuman"));
+    if (feature.dateTime) {
+      var time = node("time", "", feature.dateText || feature.dateTime);
+      time.setAttribute("datetime", feature.dateTime);
+      head.appendChild(time);
+    } else if (feature.dateText) {
+      head.appendChild(node("span", "", feature.dateText));
+    }
+    article.appendChild(head);
+
+    article.appendChild(node("h3", "", feature.title || ""));
+    if (feature.body) article.appendChild(node("p", "", feature.body));
+
+    if (feature.points && feature.points.length) {
+      var list = node("ul", "feature-list");
+      feature.points.forEach(function (point) {
+        var li = node("li");
+        li.appendChild(node("strong", "", point.label || ""));
+        li.appendChild(node("span", "", point.text || ""));
+        list.appendChild(li);
+      });
+      article.appendChild(list);
+    }
+
+    if (feature.linkText) {
+      var link = node("a", "feature-link", feature.linkText);
+      link.href = feature.linkHref || "#kontak";
+      article.appendChild(link);
+    }
+
+    article.appendChild(featureMark());
+    return article;
+  }
+
+  function buildNotice(item, index) {
+    var id = "n" + (index + 1);
+    var article = node("article", "notice");
+
+    var button = node("button", "notice-head");
+    button.type = "button";
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-controls", id);
+
+    var date = node("span", "notice-date");
+    date.appendChild(node("strong", "", item.day || ""));
+    date.appendChild(node("span", "", item.month || ""));
+    button.appendChild(date);
+
+    var main = node("span", "notice-main");
+    main.appendChild(node("span", "notice-cat", item.category || ""));
+    main.appendChild(node("span", "notice-title", item.title || ""));
+    main.appendChild(node("span", "notice-excerpt", item.excerpt || ""));
+    button.appendChild(main);
+
+    var plus = node("span", "notice-plus");
+    plus.setAttribute("aria-hidden", "true");
+    button.appendChild(plus);
+
+    var body = node("div", "notice-body");
+    body.id = id;
+    body.setAttribute("aria-hidden", "true");
+    var inner = node("div", "notice-body-inner");
+    inner.appendChild(node("p", "", item.body || ""));
+    if (item.meta) inner.appendChild(node("p", "notice-meta", item.meta));
+    body.appendChild(inner);
+
+    article.appendChild(button);
+    article.appendChild(body);
+    return article;
+  }
+
+  function renderNotices() {
+    var data = window.DATA_PENGUMUMAN;
+    var host = document.querySelector(".notice-layout");
+    if (!data || !host) return;
+
+    var fragment = document.createDocumentFragment();
+    if (data.feature) fragment.appendChild(buildFeature(data.feature));
+
+    var list = node("div", "notice-list");
+    list.appendChild(node("h3", "list-title", data.listTitle || "Pengumuman lainnya"));
+    (data.items || []).forEach(function (item, index) {
+      list.appendChild(buildNotice(item, index));
     });
-  });
+    fragment.appendChild(list);
+
+    host.textContent = "";
+    host.appendChild(fragment);
+
+    var update = document.getElementById("pengumuman-update");
+    if (update && data.update) update.textContent = data.update;
+  }
+
+  renderNotices();
+
+  /* Pengumuman yang bisa dibuka */
+  function bindNotices() {
+    var noticeButtons = document.querySelectorAll(".notice-head");
+    Array.prototype.forEach.call(noticeButtons, function (button) {
+      button.addEventListener("click", function () {
+        var item = button.closest(".notice");
+        var isOpen = item.classList.toggle("open");
+        button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        var body = document.getElementById(button.getAttribute("aria-controls"));
+        if (body) body.setAttribute("aria-hidden", isOpen ? "false" : "true");
+      });
+    });
+  }
+
+  bindNotices();
 
   /* Menu untuk layar kecil */
   var header = document.querySelector("[data-header]");

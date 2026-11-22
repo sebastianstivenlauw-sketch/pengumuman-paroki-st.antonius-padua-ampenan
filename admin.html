@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editor Pengumuman — Paroki St. Antonius Padua</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body.admin { background: var(--paper-deep); }
+    .admin-head {
+      padding: 30px var(--pad);
+      background: var(--plum);
+      color: var(--paper);
+    }
+    .admin-head a {
+      display: inline-block;
+      margin-bottom: 12px;
+      font-size: .78rem;
+      color: var(--gold);
+      text-underline-offset: 3px;
+    }
+    .admin-head h1 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.1;
+    }
+    .admin-head p {
+      max-width: 68ch;
+      margin-top: 10px;
+      font-size: .88rem;
+      color: #d6c9dc;
+    }
+    .admin-head code { color: var(--gold); }
+    .admin-wrap { padding: clamp(26px, 4vw, 48px) var(--pad) 80px; }
+    .admin-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+      gap: clamp(24px, 3vw, 42px);
+      align-items: start;
+      max-width: var(--wrap);
+      margin: 0 auto;
+    }
+    .admin-panel {
+      padding: clamp(20px, 2.4vw, 30px);
+      background: var(--paper-soft);
+      border: 1px solid var(--line-strong);
+      border-radius: 3px;
+    }
+    .admin-panel fieldset {
+      margin: 0 0 26px;
+      padding: 0;
+      border: 0;
+      border-top: 1px solid var(--line);
+    }
+    .admin-panel fieldset:first-of-type { border-top: 0; padding-top: 0; }
+    .admin-panel legend {
+      width: 100%;
+      padding: 18px 0 12px;
+      font-family: var(--serif);
+      font-size: 1.35rem;
+    }
+    .admin-panel fieldset:first-of-type legend { padding-top: 0; }
+    .admin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .admin-field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+    .admin-grid .admin-field { margin-bottom: 0; }
+    .admin-field.wide { grid-column: 1 / -1; }
+    .admin-field label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--brass);
+    }
+    .admin-field input,
+    .admin-field textarea,
+    .admin-output textarea {
+      width: 100%;
+      padding: 9px 11px;
+      background: #fffdf7;
+      border: 1px solid var(--line-strong);
+      border-radius: 2px;
+      font: inherit;
+      font-size: .88rem;
+      color: var(--ink);
+    }
+    .admin-field textarea { min-height: 88px; resize: vertical; line-height: 1.55; }
+    .admin-field input:focus,
+    .admin-field textarea:focus { outline: 2px solid rgba(138, 99, 41, .35); outline-offset: 1px; }
+    .admin-item {
+      margin-bottom: 16px;
+      padding: 16px;
+      background: rgba(236, 229, 214, .55);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+    }
+    .admin-item-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: .76rem;
+      font-weight: 600;
+      color: var(--ink-2);
+    }
+    .admin-mini-actions { display: flex; gap: 6px; }
+    .admin-btn {
+      padding: 8px 13px;
+      border: 1px solid var(--brass-2);
+      border-radius: 2px;
+      background: transparent;
+      font: inherit;
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--brass);
+      cursor: pointer;
+      transition: background .2s ease, color .2s ease;
+    }
+    .admin-btn:hover { background: var(--brass); color: #fff; }
+    .admin-btn.solid { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+    .admin-btn.solid:hover { background: var(--brass); border-color: var(--brass); }
+    .admin-btn.danger { border-color: #a2605c; color: #8b3a36; }
+    .admin-btn.danger:hover { background: #8b3a36; color: #fff; }
+    .admin-btn.small { padding: 5px 9px; font-size: .72rem; }
+    .admin-output { position: sticky; top: 20px; }
+    .admin-output h2 {
+      margin: 0 0 14px;
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 400;
+    }
+    .admin-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .admin-output textarea {
+      min-height: 360px;
+      font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+      font-size: .74rem;
+      line-height: 1.5;
+      white-space: pre;
+    }
+    .admin-status { min-height: 1.4em; margin-top: 10px; font-size: .78rem; color: var(--brass); }
+    .admin-status.ok { color: #2f6b4f; }
+    .admin-status.error { color: #8b3a36; }
+    .admin-note { margin: 0 0 14px; font-size: .76rem; line-height: 1.55; color: var(--ink-2); }
+    .admin-check {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 14px 0;
+      font-size: .78rem;
+      color: var(--ink-2);
+    }
+    .admin-check input { width: auto; }
+    .admin-preview {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+    .admin-preview h3 { margin: 0 0 10px; font-family: var(--serif); font-size: 1.1rem; font-weight: 400; }
+    .admin-preview p { margin: 0 0 8px; font-size: .8rem; line-height: 1.5; color: var(--ink-2); }
+    .admin-preview strong { color: var(--ink); }
+    @media (max-width: 980px) {
+      .admin-layout { grid-template-columns: 1fr; }
+      .admin-output { position: static; }
+    }
+    @media (max-width: 560px) {
+      .admin-grid { grid-template-columns: 1fr; }
+      .admin-field.wide { grid-column: auto; }
+    }
+  </style>
+</head>
+<body class="admin">
+  <header class="admin-head">
+    <a href="index.html">← Kembali ke situs</a>
+    <h1>Editor pengumuman</h1>
+    <p>
+      Data yang sedang tampil di situs sudah termuat otomatis di formulir ini. Ubah isinya,
+      lalu pilih <strong>Simpan ke GitHub</strong> agar situs langsung diperbarui. Cara manual juga
+      tersedia: <strong>Salin</strong> atau <strong>Unduh</strong> berkas, lalu unggah ke
+      <code>data/pengumuman.js</code> dan <code>push</code> ke <code>main</code>.
+    </p>
+  </header>
+
+  <main class="admin-wrap">
+    <div class="admin-layout">
+      <form class="admin-panel" id="editor" autocomplete="off">
+        <fieldset>
+          <legend>Pengumuman utama</legend>
+          <div class="admin-grid">
+            <div class="admin-field">
+              <label for="f-tag">Kategori</label>
+              <input id="f-tag" data-feature="tag">
+            </div>
+            <div class="admin-field">
+              <label for="f-dateText">Teks tanggal</label>
+              <input id="f-dateText" data-feature="dateText" placeholder="Mulai 29 November">
+            </div>
+            <div class="admin-field">
+              <label for="f-dateTime">Tanggal (ISO)</label>
+              <input id="f-dateTime" data-feature="dateTime" placeholder="2026-11-29">
+            </div>
+            <div class="admin-field">
+              <label for="f-title">Judul</label>
+              <input id="f-title" data-feature="title">
+            </div>
+            <div class="admin-field wide">
+              <label for="f-body">Isi pengumuman</label>
+              <textarea id="f-body" data-feature="body"></textarea>
+            </div>
+            <div class="admin-field">
+              <label for="f-pointLabel">Poin tambahan — label</label>
+              <input id="f-pointLabel" data-point="label" placeholder="Misa Minggu">
+            </div>
+            <div class="admin-field">
+              <label for="f-pointText">Poin tambahan — isi</label>
+              <input id="f-pointText" data-point="text" placeholder="Tetap pukul 07.30 dan 18.00 WITA">
+            </div>
+            <div class="admin-field">
+              <label for="f-linkText">Teks tautan</label>
+              <input id="f-linkText" data-feature="linkText" placeholder="Tanyakan jadwal lengkap">
+            </div>
+            <div class="admin-field">
+              <label for="f-linkHref">Alamat tautan</label>
+              <input id="f-linkHref" data-feature="linkHref" placeholder="mailto:sekretariat@...">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Pengumuman lainnya</legend>
+          <div id="items"></div>
+          <button class="admin-btn" type="button" id="add-item">+ Tambah pengumuman</button>
+        </fieldset>
+
+        <fieldset>
+          <legend>Teks bagian</legend>
+          <div class="admin-grid">
+            <div class="admin-field">
+              <label for="f-update">Keterangan diperbarui</label>
+              <input id="f-update" data-root="update">
+            </div>
+            <div class="admin-field">
+              <label for="f-listTitle">Judul daftar</label>
+              <input id="f-listTitle" data-root="listTitle">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Simpan langsung ke GitHub</legend>
+          <p class="admin-note">
+            Opsional. Isi <em> Personal Access Token </em> dengan izin tulis pada repository ini.
+            Token hanya dikirim ke api.github.com dan tidak disimpan di situs, kecuali Anda mencentang
+            pilihan di bawah. Jangan memakai komputer umum bila mencentangnya.
+          </p>
+          <div class="admin-grid">
+            <div class="admin-field">
+              <label for="gh-owner">Pemilik repository</label>
+              <input id="gh-owner" data-gh="owner" value="sebastianstivenlauw-sketch" autocomplete="off">
+            </div>
+            <div class="admin-field">
+              <label for="gh-repo">Nama repository</label>
+              <input id="gh-repo" data-gh="repo" value="pengumuman-paroki-st.antonius-padua-ampenan" autocomplete="off">
+            </div>
+            <div class="admin-field">
+              <label for="gh-branch">Branch</label>
+              <input id="gh-branch" data-gh="branch" value="main" autocomplete="off">
+            </div>
+            <div class="admin-field">
+              <label for="gh-token">Token GitHub</label>
+              <input id="gh-token" data-gh="token" type="password" placeholder="ghp_…" autocomplete="off" spellcheck="false">
+            </div>
+          </div>
+          <label class="admin-check" for="remember-token">
+            <input id="remember-token" type="checkbox"> Ingat pengaturan dan token di peramban ini
+          </label>
+          <button class="admin-btn solid" type="button" id="save-github">Simpan ke GitHub</button>
+        </fieldset>
+      </form>
+
+      <aside class="admin-output">
+        <h2>Hasil pengumuman.js</h2>
+        <div class="admin-actions">
+          <button class="admin-btn solid" type="button" id="copy">Salin</button>
+          <button class="admin-btn" type="button" id="download">Unduh berkas</button>
+          <button class="admin-btn danger" type="button" id="reset">Muat ulang data situs</button>
+        </div>
+        <textarea id="source" readonly spellcheck="false" aria-label="Kode data pengumuman"></textarea>
+        <p class="admin-status" id="status" role="status"></p>
+        <div class="admin-preview" id="preview"></div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="data/pengumuman.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var DEFAULT = window.DATA_PENGUMUMAN || {
+        update: "", listTitle: "Pengumuman lainnya",
+        feature: { tag: "", dateText: "", dateTime: "", title: "", body: "", points: [], linkText: "", linkHref: "" },
+        items: []
+      };
+      var state;
+      var itemsHost = document.getElementById("items");
+      var sourceEl = document.getElementById("source");
+      var statusEl = document.getElementById("status");
+      var previewEl = document.getElementById("preview");
+      var saveBtn = document.getElementById("save-github");
+      var rememberEl = document.getElementById("remember-token");
+      var ghFields = document.querySelectorAll("[data-gh]");
+      var STORAGE_KEY = "pengumuman-paroki-github";
+
+      function clone(value) { return JSON.parse(JSON.stringify(value)); }
+
+      function setStatus(text, isError) {
+        statusEl.textContent = text;
+        statusEl.classList.toggle("ok", Boolean(text) && !isError);
+        statusEl.classList.toggle("error", Boolean(isError));
+      }
+
+      function storageGet(key) {
+        try { return localStorage.getItem(key); } catch (error) { return null; }
+      }
+
+      function storageSet(key, value) {
+        try { localStorage.setItem(key, value); } catch (error) { /* abaikan */ }
+      }
+
+      function storageRemove(key) {
+        try { localStorage.removeItem(key); } catch (error) { /* abaikan */ }
+      }
+
+      function restoreGithubSettings() {
+        var raw = storageGet(STORAGE_KEY);
+        if (!raw) return;
+        var saved;
+        try { saved = JSON.parse(raw); } catch (error) { return; }
+        if (!saved || typeof saved !== "object") return;
+        ghFields.forEach(function (input) {
+          var key = input.getAttribute("data-gh");
+          if (saved[key]) input.value = saved[key];
+        });
+        if (saved.remember) rememberEl.checked = true;
+      }
+
+      function persistGithubSettings() {
+        var values = {};
+        ghFields.forEach(function (input) {
+          values[input.getAttribute("data-gh")] = input.value;
+        });
+        values.remember = rememberEl.checked;
+        if (values.remember) {
+          storageSet(STORAGE_KEY, JSON.stringify(values));
+        } else {
+          values.token = "";
+          storageSet(STORAGE_KEY, JSON.stringify(values));
+        }
+      }
+
+      function loadFromSite() {
+        state = clone(DEFAULT);
+        syncRootFields();
+        syncFeatureFields();
+        renderItems();
+        refresh();
+      }
+
+      function syncRootFields() {
+        document.querySelectorAll("[data-root]").forEach(function (input) {
+          input.value = state[input.getAttribute("data-root")] || "";
+        });
+      }
+
+      function syncFeatureFields() {
+        document.querySelectorAll("[data-feature]").forEach(function (input) {
+          input.value = state.feature[input.getAttribute("data-feature")] || "";
+        });
+        var point = (state.feature.points && state.feature.points[0]) || {};
+        document.querySelectorAll("[data-point]").forEach(function (input) {
+          input.value = point[input.getAttribute("data-point")] || "";
+        });
+      }
+
+      function field(label, key, value, wide, textarea) {
+        var wrap = document.createElement("div");
+        wrap.className = "admin-field" + (wide ? " wide" : "");
+        var lab = document.createElement("label");
+        lab.textContent = label;
+        var input = document.createElement(textarea ? "textarea" : "input");
+        if (!textarea) input.type = "text";
+        input.value = value || "";
+        input.setAttribute("data-item", key);
+        wrap.appendChild(lab);
+        wrap.appendChild(input);
+        return wrap;
+      }
+
+      function renderItems() {
+        itemsHost.textContent = "";
+        state.items.forEach(function (item, index) {
+          var card = document.createElement("div");
+          card.className = "admin-item";
+          var head = document.createElement("div");
+          head.className = "admin-item-head";
+          var title = document.createElement("span");
+          title.textContent = "Pengumuman " + (index + 1);
+          head.appendChild(title);
+
+          var actions = document.createElement("div");
+          actions.className = "admin-mini-actions";
+          [["↑", "up", "Naik"], ["↓", "down", "Turun"], ["Hapus", "remove", "Hapus"]].forEach(function (pair) {
+            var btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "admin-btn small" + (pair[1] === "remove" ? " danger" : "");
+            btn.textContent = pair[0];
+            btn.setAttribute("data-action", pair[1]);
+            btn.setAttribute("data-index", String(index));
+            btn.setAttribute("aria-label", pair[2] + " pengumuman " + (index + 1));
+            actions.appendChild(btn);
+          });
+          head.appendChild(actions);
+          card.appendChild(head);
+
+          var grid = document.createElement("div");
+          grid.className = "admin-grid";
+          grid.appendChild(field("Hari", "day", item.day, false, false));
+          grid.appendChild(field("Bulan", "month", item.month, false, false));
+          grid.appendChild(field("Kategori", "category", item.category, false, false));
+          grid.appendChild(field("Judul", "title", item.title, false, false));
+          grid.appendChild(field("Ringkasan", "excerpt", item.excerpt, true, false));
+          grid.appendChild(field("Isi lengkap", "body", item.body, true, true));
+          grid.appendChild(field("Keterangan waktu / tempat", "meta", item.meta, true, false));
+          card.appendChild(grid);
+          itemsHost.appendChild(card);
+        });
+      }
+
+      function collect() {
+        document.querySelectorAll("[data-root]").forEach(function (input) {
+          state[input.getAttribute("data-root")] = input.value;
+        });
+        document.querySelectorAll("[data-feature]").forEach(function (input) {
+          state.feature[input.getAttribute("data-feature")] = input.value;
+        });
+        var point = {};
+        document.querySelectorAll("[data-point]").forEach(function (input) {
+          point[input.getAttribute("data-point")] = input.value;
+        });
+        state.feature.points = (point.label || point.text) ? [point] : [];
+
+        itemsHost.querySelectorAll(".admin-item").forEach(function (card, index) {
+          card.querySelectorAll("[data-item]").forEach(function (input) {
+            state.items[index][input.getAttribute("data-item")] = input.value;
+          });
+        });
+      }
+
+      function sourceText() {
+        var header = "/* Data pengumuman Paroki St. Antonius Padua Ampenan.\n" +
+          "   Dibuat dari halaman admin.html. Perubahan pada berkas ini\n" +
+          "   akan otomatis terbit setelah di-push ke branch main. */\n\n";
+        return header + "window.DATA_PENGUMUMAN = " + JSON.stringify(state, null, 2) + ";\n";
+      }
+
+      function toBase64(text) {
+        if (typeof TextEncoder === "function") {
+          var bytes = new TextEncoder().encode(text);
+          var binary = "";
+          for (var i = 0; i < bytes.length; i += 1) binary += String.fromCharCode(bytes[i]);
+          return btoa(binary);
+        }
+        return btoa(unescape(encodeURIComponent(text)));
+      }
+
+      function witaDate() {
+        return new Date(Date.now() + 8 * 60 * 60 * 1000).toISOString().slice(0, 10);
+      }
+
+      function githubHeaders(token, withBody) {
+        var headers = {
+          Authorization: "Bearer " + token,
+          Accept: "application/vnd.github+json",
+          "X-GitHub-Api-Version": "2022-11-28"
+        };
+        if (withBody) headers["Content-Type"] = "application/json";
+        return headers;
+      }
+
+      function githubError(response) {
+        return response.text().then(function (text) {
+          var message = text;
+          try { message = JSON.parse(text).message || text; } catch (error) { /* teks biasa */ }
+          return new Error((response.status || "Galat") + " — " + message);
+        });
+      }
+
+      function saveToGithub() {
+        refresh();
+        var values = {};
+        ghFields.forEach(function (input) {
+          values[input.getAttribute("data-gh")] = input.value.trim();
+        });
+        if (!values.owner || !values.repo || !values.branch) {
+          setStatus("Lengkapi pemilik, nama repository, dan branch terlebih dahulu.", true);
+          return;
+        }
+        if (!values.token) {
+          setStatus("Masukkan token GitHub dengan izin tulis pada repository ini.", true);
+          return;
+        }
+
+        persistGithubSettings();
+        saveBtn.disabled = true;
+        setStatus("Menyimpan ke GitHub…");
+
+        var path = "data/pengumuman.js";
+        var api = "https://api.github.com/repos/" +
+          encodeURIComponent(values.owner) + "/" + encodeURIComponent(values.repo);
+        var url = api + "/contents/" + path + "?ref=" + encodeURIComponent(values.branch);
+
+        fetch(url, { headers: githubHeaders(values.token, false) })
+          .then(function (response) {
+            if (response.status === 404) return null;
+            if (!response.ok) return githubError(response).then(function (error) { throw error; });
+            return response.json();
+          })
+          .then(function (existing) {
+            var payload = {
+              message: "Perbarui pengumuman paroki " + witaDate(),
+              content: toBase64(sourceEl.value),
+              branch: values.branch
+            };
+            if (existing && existing.sha) payload.sha = existing.sha;
+            return fetch(url, {
+              method: "PUT",
+              headers: githubHeaders(values.token, true),
+              body: JSON.stringify(payload)
+            });
+          })
+          .then(function (response) {
+            if (!response.ok) return githubError(response).then(function (error) { throw error; });
+            return response.json();
+          })
+          .then(function () {
+            DEFAULT = clone(state);
+            setStatus("Tersimpan di GitHub. GitHub Pages akan memperbarui situs dalam beberapa menit.", false);
+          })
+          .catch(function (error) {
+            setStatus("Gagal menyimpan: " + error.message, true);
+          })
+          .then(function () {
+            saveBtn.disabled = false;
+          });
+      }
+
+      function renderPreview() {
+        previewEl.textContent = "";
+        var heading = document.createElement("h3");
+        heading.textContent = "Pratinjau singkat";
+        previewEl.appendChild(heading);
+        [state.feature.title].concat(state.items.map(function (item) { return item.title; }))
+          .filter(Boolean).slice(0, 8).forEach(function (title) {
+            var p = document.createElement("p");
+            var strong = document.createElement("strong");
+            strong.textContent = title;
+            p.appendChild(strong);
+            previewEl.appendChild(p);
+          });
+      }
+
+      function refresh() {
+        collect();
+        sourceEl.value = sourceText();
+        renderPreview();
+      }
+
+      document.getElementById("editor").addEventListener("input", refresh);
+
+      document.getElementById("add-item").addEventListener("click", function () {
+        collect();
+        state.items.push({ day: "", month: "", category: "", title: "", excerpt: "", body: "", meta: "" });
+        renderItems();
+        refresh();
+        var cards = itemsHost.querySelectorAll(".admin-item");
+        if (cards.length) cards[cards.length - 1].querySelector("input").focus();
+      });
+
+      itemsHost.addEventListener("click", function (event) {
+        var button = event.target.closest("[data-action]");
+        if (!button) return;
+        var index = Number(button.getAttribute("data-index"));
+        collect();
+        var action = button.getAttribute("data-action");
+        if (action === "remove") state.items.splice(index, 1);
+        if (action === "up" && index > 0) {
+          var before = state.items[index - 1];
+          state.items[index - 1] = state.items[index];
+          state.items[index] = before;
+        }
+        if (action === "down" && index < state.items.length - 1) {
+          var after = state.items[index + 1];
+          state.items[index + 1] = state.items[index];
+          state.items[index] = after;
+        }
+        renderItems();
+        refresh();
+      });
+
+      document.getElementById("reset").addEventListener("click", function () {
+        loadFromSite();
+        setStatus("Data dari situs berhasil dimuat ulang.");
+      });
+
+      document.getElementById("copy").addEventListener("click", function () {
+        refresh();
+        function done() { setStatus("Kode tersalin. Tempel ke data/pengumuman.js di GitHub."); }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(sourceEl.value).then(done, fallback);
+        } else fallback();
+        function fallback() {
+          sourceEl.focus();
+          sourceEl.select();
+          try { document.execCommand("copy"); done(); }
+          catch (error) { setStatus("Salin manual dari kotak kode di bawah."); }
+        }
+      });
+
+      document.getElementById("download").addEventListener("click", function () {
+        refresh();
+        var blob = new Blob([sourceEl.value], { type: "text/javascript;charset=utf-8" });
+        var url = URL.createObjectURL(blob);
+        var link = document.createElement("a");
+        link.href = url;
+        link.download = "pengumuman.js";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+        setStatus("Berkas pengumuman.js diunduh. Unggah ke folder data/ di GitHub.");
+      });
+
+      saveBtn.addEventListener("click", saveToGithub);
+      rememberEl.addEventListener("change", persistGithubSettings);
+
+      restoreGithubSettings();
+      loadFromSite();
+    }());
+  </script>
+</body>
+</html>
